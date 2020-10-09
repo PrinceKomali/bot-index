@@ -1,0 +1,12 @@
+Setup
+First of all, you will need a bot. Go to https://discord.com/developers/applications/, and make a new application
+Go to the bot tab on the sidebar and click `Add Bot`. You can update the bot's profile picture and username from there
+The most important thing on this page is the token which is what lets your bot log in and function. You will need this for later so make note of where it is
+
+In terms of coding, we will be using Node.js, so download it at https://nodejs.org/en/download/
+Once it is installed, make a new folder on your computer for the bot. Make note of where this folder is
+Shift click the inside of this folder, and click `Open Command Prompt/Powershell Window Here`, or use the `cd` command in Terminal/Command Prompt to navigate here.
+Once you do that, run the command `npm init` and follow the steps there (you can skip most of it).
+Once that is done, create a new file called `index.js`, which is where we will code the bot. After that, run the command `npm i discord.js` in the Command Prompt/Powershell/Terminal window.
+
+The command `npm i` (short for `npm install`) is used to install node modules. If you plan to add features to this bot you will probably use it again

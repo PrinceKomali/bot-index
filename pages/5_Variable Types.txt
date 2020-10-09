@@ -1,0 +1,17 @@
+Variable Types
+There are 5 main variable types: Numbers, Booleans, Strings, Arrays, and Objects
+Numbers are, well, numbers. Simple as that```js
+var num = 9.136
+```Booleans are also really easy; they only have 2 values: True and False```js
+var bool1 = true
+var bool2 = false
+```Strings are plain text, and are probably the most used as far as I can tell```js
+var str = "This is a string"
+```Arrays are lists of data, such as numbers, strings, or other arrays```js
+var arr = ["element 1", 2, false]
+```Objects are complicated, but they are basically a multi-part array, although you call the values differently```js
+var obj = {
+           "val1": "val1a",
+           "val2": "val2a"
+           }
+```
