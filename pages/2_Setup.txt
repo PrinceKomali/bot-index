@@ -2,6 +2,7 @@ Setup
 First of all, you will need a bot. Go to https://discord.com/developers/applications/, and make a new application
 Go to the bot tab on the sidebar and click `Add Bot`. You can update the bot's profile picture and username from there
 The most important thing on this page is the token which is what lets your bot log in and function. You will need this for later so make note of where it is
+To add the bot to a server, go to the `OAuth2` tab, click the `Bot` checkbox, and paste the link into your browser
 
 In terms of coding, we will be using Node.js, so download it at https://nodejs.org/en/download/
 Once it is installed, make a new folder on your computer for the bot. Make note of where this folder is

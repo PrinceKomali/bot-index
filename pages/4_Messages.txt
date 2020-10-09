@@ -1,0 +1,30 @@
+Messages
+Every time a message is sent, it is sent to the Discord API. We can fetch these with another `client.on`:```js
+client.on('message', message => {
+})
+```**NOTE:** If you are using modules that require `await`, such as `node-canvas`, change the first line to `client.on('message', async message => {`
+However, this fires on __every single message__ posted in a server the bot is in, so lets narrow it down:```js
+client.on('message', message => {
+   if(message.content == "test"){
+      message.channel.send("Test Successful")
+   }
+})
+````message.content` is what the message says, and `message.channel.send` sends a message. However, this command is case sensetive, so lets do something like this to fix it:```js
+client.on('message', message => {
+   const command = message.content.trim().toLowerCase()
+   if(command == "test"){
+      message.channel.send("Test Successful")
+   }
+})
+```Lets say our message was `   TEST   `. `message.content.trim()` would get rid of the extra spaces (`TEST`) and `.toLowerCase()` would make it all lowercase, therefore triggering the command
+Each `if{}` statement is independent, so we can add multiple commands in the one `client.on('message')` (You will only ever need 1)```js
+client.on('message', message => {
+   const command = message.content.trim().toLowerCase()
+   if(command == "test"){
+      message.channel.send("Test Successful")
+   }
+   if(command == "test 2"){
+      message.channel.send("Test 2 Successful")
+   }
+})
+```

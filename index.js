@@ -12,6 +12,15 @@ client.on('ready', () => {
 })
 client.on('message', message => {
     //FUNCTIONS
+    function search(input) {
+        for (i = 0; i < pages.length; i++) {
+            if (pages[i].toLowerCase().includes(input)) {
+                return i + 1
+                break
+            }
+            if (i == pages.length && !pages[i].toLowerCase().includes(input)) return null
+        }
+    }
     function makeEmbed(title, input) {
         const embed = new Discord.MessageEmbed()
         embed.setColor("#fff700")
@@ -22,6 +31,7 @@ client.on('message', message => {
     }
     function extractPageData(pagenum, callback) {
         const thisPage = fs.readdirSync("./pages")[pagenum - 1]
+        //console.log(thisPage)
         try {
             var title, desc
             var filedat = fs.readFileSync(__dirname + "\\pages\\" + thisPage, "utf8")
@@ -40,12 +50,22 @@ client.on('message', message => {
         if (splitMessage[0] == "help") {
             var helppages = fs.readdirSync("./pages")
             for (i = 0; i < helppages.length; i++) {
-                helppages[i] = "**[" + helppages[i].split("_")[0] + "]** " + helppages[i].split("_")[1]
+                helppages[i] = "**[" + helppages[i].split("_")[0] + "]** " + helppages[i].split("_")[1].split(".")[0]
             }
             makeEmbed("Docs (do `jshelp #`)", helppages.join("\n"))
         }
-    else if (isNaN(splitMessage[0])) {
-        message.channel.send("JSHELP Search is not ready yet")
+        else if (isNaN(splitMessage[0])) {
+            var searching = search(splitMessage[0])
+            //console.log(searching)
+            if (searching) {
+                extractPageData(searching, function (title, desc) {
+                    makeEmbed(title, desc)
+                })
+            }
+            else {
+                makeEmbed(null, "Invalid Search Term")
+            }
+        //message.channel.send("JSHELP Search is not ready yet")
     }
     else {
             extractPageData(parseInt(splitMessage[0]), function (title, desc) {

@@ -1,0 +1,26 @@
+Initializing the Client
+To actually put your bot online, we will need to setup the code. Open the `index.js` file and type this:```js
+const Discord = require('discord.js')
+const client = new Discord.Client()
+```This sets up the dependencies your code will use as it's running. Next we will need our token from Page 2: ```js
+const Discord = require('discord.js')
+const client = new Discord.Client()
+client.login("TOKEN GOES HERE")``` (Make sure to add the quotation marks!)
+To start the bot, run `node index.js` in the Commant Prompt/Shell/Terminal window. If you followed these steps correctly you should see your bot online	
+
+To set the bot's status, we will need to create a `client.on('ready)` handler. Underneath all the previous code, write```js
+client.on('ready', () => {
+
+})
+```Now we can write the script to set the bot's status:```js
+client.on('ready', () => {   
+   client.user.setActivity("This is my status!", {
+      type: "PLAYING"
+   })
+})
+```You can set the type to "PLAYING", "WATCHING", "LISTENING", and "STREAMING". However, streaming requires an extra step:```js
+    client.user.setActivity("This is my status!", {
+      type: "STREAMING",
+      url: "https://example.com/"
+   })
+```You can put any URL in the `url` part, but I recommend putting your twitch channel there.
