@@ -9,7 +9,7 @@ var bool2 = false
 var str = "This is a string"
 ```Arrays are lists of data, such as numbers, strings, or other arrays```js
 var arr = ["element 1", 2, false]
-```Objects are complicated, but they are basically a multi-part array, although you call the values differently```js
+```Objects are  basically multi-part arrays, although you call the values differently```js
 var obj = {
            "val1": "val1a",
            "val2": "val2a"
