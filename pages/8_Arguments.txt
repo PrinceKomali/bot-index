@@ -1,0 +1,25 @@
+Arguments
+Our command script from page 3 works great, but say we wanted to do something different based off the second word. Luckily there is a simple way to do that:```js
+client.on('message', message => {
+   const args = message.content.split(" ")
+   if(args[0] == "!test"){
+      if(args[1] == "1"){
+         message.channel.send("Test 1 Complete!")
+      }
+      else if(args[1] == "2"){
+         message.channel.send("Test 2 Complete!")
+      }
+      else {
+         message.channel.send("No Test Specified")
+      }
+   }
+})
+```If we need to get the message content minus the initial command, we can do this:```js
+client.on('message', message => {
+   const args = message.content.split(" ")
+   if(args[0] == "!test"){
+      args.shift() //This removes the first element; call this as many times as you need
+      args = args.join(" ")
+      message.channel.send(args)
+   }
+})```

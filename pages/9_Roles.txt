@@ -1,0 +1,16 @@
+Roles
+**NOTE**: This will require your bot to have the "MANAGE ROLES" permission
+A popular command for Discord bots is a role command. To make one of these, we need to understand the RoleManager:```js
+//In the message handler loop
+if(message.content == "!role"){
+   if(message.member.roles.cache.has("123456789098765432")) {
+      message.member.roles.remove("123456789098765432")
+   } else {
+      message.author.roles.add("123456789098765432")
+   }
+}
+```To get the ID of the role, either mention it in the chat with a backslash before it (e.g. `\@Role`) or go to the server settings, go to roles, right click the role you want and click "Copy ID" (If there is no "Copy ID" button you may need to enable Developer Mode in Appearance Settings)	
+Another option is to use `find()`: ```js
+const examplerole = message.guild.roles.cache.find(x => x.name.toLowerCase() == "example role")
+message.member.roles.add(examplerole.id)
+```However the bot can only add roles below it, so I recommend giving the bot the ADMINISTRATOR perms

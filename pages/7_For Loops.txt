@@ -1,0 +1,26 @@
+For Loops
+Lets say we have this array:```js
+["Term", "Term", "Term"]
+```That we want to turn into```js
+["Term0", "Term1", "Term2"]
+```We can do this with a `for` loop! The way they work is like this:```js
+for(i = 0; i < #; i++){
+}
+```So, for example, if we wanted to repeat something 3 times, we would do```js
+for(i = 0; i < 3; i++){
+console.log(i)
+}
+/*Output: 
+0
+1
+2
+*/
+```Therefore we can do something like this:```js
+var arr = ["Term", "Term", "Term"]
+//to get the length of an array, use the .length property
+for(i=0; i < arr.length; i++) {
+arr[i] = arr[i] + i
+}
+console.log(arr)
+//Output as an Array: ["Term0", "Term1", "Term2"]
+```**NOTE**: If you want to put a for loop inside another for loop, make sure to switch `i` to another variable (like `j`)
