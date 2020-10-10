@@ -46,8 +46,9 @@ client.on('message', message => {
     }
     //TRIGGERS
     const splitMessage = message.content.startsWith(prefix + " ") ? message.content.split(/ (.+)/)[1].split(" ") : ""
-    if (splitMessage != "") {
-        if (splitMessage[0] == "help") {
+    if (splitMessage != "" || message.content == prefix) {
+        
+        if (splitMessage[0] == "help" || message.content == prefix) {
             var helppages = fs.readdirSync("./pages")
             for (i = 0; i < helppages.length; i++) {
                 helppages[i] = "**[" + helppages[i].split("_")[0] + "]** " + helppages[i].split("_")[1].split(".")[0]

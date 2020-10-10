@@ -1,0 +1,30 @@
+If/Else Statements
+One of the most important functions in any coding language is the `if()` statement```js
+if(true){
+   //this gets executed
+} else {
+
+}
+```With booleans, you can simply put the variable inside the parentheses (), as it will automatically be true```js
+const bool = true
+if(bool) {
+//this executes
+}
+```For other types of variables, you can use these operators:```js
+// == (Is equal to)
+if(x == 1)
+// != (Is not equal to)
+if(x != 1)
+// < / > (Is greater/less than)
+if(x > 1)
+if(x < 1)
+// <= / >= (Is greater/less than or equal to)
+if(x <= 1)
+if(x >= 1)
+//NOTE: => and =< do not work (=> is used to define a function, you can see it in the client.on statements)
+```If you want to use multiple conditions, you can use these operators as well```js
+// && (and)
+if(condition1 && condition2)
+// || (Or)
+// ! (Not)
+if(!condition1)```
