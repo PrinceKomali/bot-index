@@ -4,6 +4,7 @@ const fs = require('fs')
 const auth = require('./auth.json')
 client.login(auth.token)
 const prefix = "jshelp"
+const git = require('simple-git')()
 const pages = fs.readdirSync("./pages")
 var helppages = fs.readdirSync("./pages")
 
@@ -11,6 +12,18 @@ client.on('ready', () => {
     console.log("Bot is on!")
 })
 client.on('message', message => {
+    if (message.content == "jshelp git update" && message.author.id == "327879060443234314") {
+
+        const repoURL = 'https://github.com/PrinceKomali/bot-index/';
+        const localPath = '';
+        const options = []
+
+        const handlerFn = () => {
+            console.log('DONE')
+        };
+
+        git.clone(repoURL, localPath, options, handlerFn());
+    } else {
     //FUNCTIONS
     function search(input) {
         for (i = 0; i < pages.length; i++) {
@@ -83,5 +96,6 @@ client.on('message', message => {
             })
             
         }
+    }
     }
 })
