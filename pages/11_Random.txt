@@ -1,0 +1,14 @@
+Random
+Lets say we have this array of messages: ```js
+["Response 1", "Response 2", ", "Response 3"]
+```and we want to send a random one using a `message.channel.send()`. For this, we can use the `Math.random()` function.
+`Math.random()` returns a random number from 0 - 1, so it will need a bit of modification. Here is the typical randomization code:```js
+Math.floor(Math.random() * n)
+````Math.random() * n` multiplies that random number by whatever length you want, which makes it a random number that is now between 0 and the number you chose
+Then `Math.floor` shaves off the decimals, and we are left with a single digit. From there we can simply do```js
+var responses = ["Response 1", "Response 2", ", "Response 3"]
+message.channel.send(responses[Math.floor(Math.random() * responses.length)])
+```If you want to get a random number between two numbers, simply subtract the two numbers and add the lower number to the output```js
+//Between 2 and 5
+Math.floor(Math.random() * 3) + 2
+```

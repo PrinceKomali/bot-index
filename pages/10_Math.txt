@@ -1,0 +1,21 @@
+Math
+The `Math` object is used a lot in javascript. Here are the main functions:```js
+console.log(Math.round(4.7), Math.round(4.3)) //Rounds to the nearest whole number
+   //Output: 5, 4
+console.log(Math.floor(4.7), Math.floor(4.3)) //Rounds down
+   //Output: 4, 4
+console.log((Math.ceil(4.7), Math.ceil(4.3)) //Rounds up
+   //Output: 5, 5
+```Standard geometric equations are also part of the `Math` object:```js
+console.log(Math.cos(5))
+   //Output: 0.283662185
+console.log(Math.sin(5))
+   //Output: -0.958924275
+console.log(Math.tan(5))
+   //Output: -3.38051501
+```The object has also several constants that can be useful:```js
+console.log(Math.PI)
+   //Output: 3.141562654
+console.log(Math.E) //Euler's Number
+   //Output: 2.718281828
+```A full list can be found at https://www.w3schools.com/js/js_math.asp

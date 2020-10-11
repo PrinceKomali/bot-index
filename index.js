@@ -30,7 +30,11 @@ client.on('message', message => {
         message.channel.send({embed: embed})
     }
     function extractPageData(pagenum, callback) {
-        const thisPage = fs.readdirSync("./pages")[pagenum - 1]
+        var thisPage = fs.readdirSync("./pages")
+        thisPage.sort(function (a, b) {
+            return parseInt(a.split("_")[0] - parseInt(b.split("_")[0]));
+        });
+        thisPage = thisPage[pagenum - 1]
         //console.log(thisPage)
         try {
             var title, desc
@@ -50,7 +54,12 @@ client.on('message', message => {
         
         if (splitMessage[0] == "help" || message.content == prefix) {
             var helppages = fs.readdirSync("./pages")
+            
+            helppages.sort(function (a, b) {
+                return parseInt(a.split("_")[0] - parseInt(b.split("_")[0]));
+            });
             for (i = 0; i < helppages.length; i++) {
+                
                 helppages[i] = "**[" + helppages[i].split("_")[0] + "]** " + helppages[i].split("_")[1].split(".")[0]
             }
             makeEmbed("Docs (do `jshelp #`)", helppages.join("\n"))
