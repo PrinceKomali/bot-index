@@ -1,0 +1,30 @@
+Objects and JSONs
+Most data online is stored as a JSON file, which can be read as an Object. Consider this object:```js
+var obj = {
+               "val1": "test",
+               "value 2": "test2"
+            }
+```If we want to get the data behind `val`, we can simply do `obj.val1`, which will return `test`. For `value 2` however, we can't do the regular dot notation because it has a space on it, so we treat it like an array, and do `obj["value 2"]` which returns `test2`. 
+Objects usually will have other objects inside of them. Take this one, gotten from the Twitch API:```json
+{
+    "data": [
+        {
+            "id": "184268998",
+            "login": "komali09",
+            "display_name": "Komali09",
+            "type": "",
+            "broadcaster_type": "",
+            "description": "I’m that guy who is under the misguided impression that he is funny. I play botw too much",
+            "profile_image_url": "https://static-cdn.jtvnw.net/jtv_user_pictures/39d70dcb-50d4-4109-8364-bd4c29ea5dc6-profile_image-300x300.png",
+            "offline_image_url": "",
+            "view_count": 626
+        }
+    ]
+}
+```To get the user's display name, we can do `(object).data[0].display_name`.
+If we want to get data from a webpage (like this one), the most common method would be to use `node-fetch` (`npm i node-fetch` in command prompt). ```js
+const fetch = require("node-fetch")
+fetch("https://www.speedrun.com/api/v1/users?lookup=komali")
+.then(res => res.json())
+.then(res => console.log(res)) //res is the resulting object
+```The documentation for that is at https://www.npmjs.com/package/node-fetch
