@@ -12,19 +12,6 @@ client.on('ready', () => {
     console.log("Bot is on!")
 })
 client.on('message', message => {
-    if (message.content == "jshelp git update" && message.author.id == "327879060443234314") {
-
-        const repoURL = 'https://github.com/PrinceKomali/bot-index/';
-        const localPath = '';
-        const options = []
-
-        const handlerFn = () => {
-            console.log('DONE')
-        };
-
-        git.clone(repoURL, localPath, options, handlerFn());
-    } else {
-    //FUNCTIONS
     function search(input) {
         for (i = 0; i < pages.length; i++) {
             if (pages[i].toLowerCase().includes(input)) {
@@ -40,7 +27,7 @@ client.on('message', message => {
         embed.setAuthor("Help Bot (Javascript)", client.user.avatarURL())
         embed.setDescription(input.replace(/>>/g, "    "))
         if (title) embed.setTitle(title)
-        message.channel.send({embed: embed})
+        message.channel.send({ embed: embed })
     }
     function extractPageData(pagenum, callback) {
         var thisPage = fs.readdirSync("./pages")
@@ -61,6 +48,36 @@ client.on('message', message => {
         }
         catch (err) { throw err }
     }
+    if (message.content == "jshelp git update" && message.author.id == "327879060443234314") {
+
+        
+           
+        const handlerFn = () => {
+        };
+        fs.rmdirSync("./updates/empty", { recursive: true });
+
+        if (!fs.existsSync("./updates/empty")) {
+            fs.mkdirSync("./updates/empty");
+
+        }
+        const repoURL = 'https://github.com/PrinceKomali/bot-index/';
+        const localPath = './updates/empty';
+        const options = []
+        git.clone(repoURL, localPath, options, handlerFn())
+        .then(() => {
+        fs.copy('./updates/empty/pages', './pages', function (err) {
+            if (err) {
+                message.channel.send("An Error occured```\n" + err + "\n```")
+            } else {
+                pages = fs.readdirSync("./pages")
+                helppages = fs.readdirSync("./pages");
+                makeEmbed(null, "Updated `" + __dirname + "\\pages` with " + pages.length + " files")
+            }
+        });
+        })
+    } else {
+    //FUNCTIONS
+    
     //TRIGGERS
     const splitMessage = message.content.startsWith(prefix + " ") ? message.content.split(/ (.+)/)[1].split(" ") : ""
     if (splitMessage != "" || message.content == prefix) {
