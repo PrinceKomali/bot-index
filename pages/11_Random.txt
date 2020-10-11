@@ -1,6 +1,6 @@
 Random
-Lets say we have this array of messages:```
-["Response 1", "Response 2", ", "Response 3"]
+Lets say we have this array of messages:```js
+["Response 1", "Response 2", "Response 3"]
 ```and we want to send a random one using a message.channel.send(). For this, we can use the `Math.random()` function.
 `Math.random()` returns a random number from 0 - 1, so it will need a bit of modification. Here is the typical randomization code:```js
 Math.floor(Math.random() * n)
