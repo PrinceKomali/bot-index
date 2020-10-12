@@ -11,3 +11,10 @@ Once you do that, run the command `npm init` and follow the steps there (you can
 Once that is done, create a new file called `index.js`, which is where we will code the bot. After that, run the command `npm i discord.js` in the Command Prompt/Powershell/Terminal window.
 
 The command `npm i` (short for `npm install`) is used to install node modules. If you plan to add features to this bot you will probably use it again
+**Docs**
+> Discord Servers:
+Javascript: https://discord.gg/js, https://discord.gg/Y8Mqbkk
+Discord.js: https://discord.gg/bRCvFy9
+> Documentation:
+Javascript: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+Discord.js: https://discordjs.guide/, https://discord.js.org/#/docs/main/stable/general/welcome
