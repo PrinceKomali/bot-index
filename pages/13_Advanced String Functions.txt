@@ -1,0 +1,16 @@
+Advanced String Functions
+A lot of the time you are going to need to change a string in other ways than just adding or replacing parts of it. However, there are lots of functions to do so:```js
+const str = "This Is A String"
+console.log(str.toLowerCase())
+   //Output: this is a string
+console.log(str.toUpperCase())
+   //Output: THIS IS A STRING
+console.log(str.length) //Returns the length of the string
+   //Output: 16
+console.log(str.charAt(n)) //Returns the character at position n
+   //if n = 3, Output: i
+console.log(str.substring(a, b)) //Returns the section of the string between a and b
+   //if a = 2, b = 6, Output: is I
+console.log(str.startsWith(string))
+   //if string = "This", Ouput: true
+```There are a couple more but for the most part this is what you will be using.
